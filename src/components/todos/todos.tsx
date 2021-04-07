@@ -16,7 +16,7 @@ interface ITodo {
 //   complete: boolean
 // }
 
-function App() {
+function Todo() {
   // | stand for or in typescript
 
   const [value, setvalue] = useState('')
@@ -53,20 +53,20 @@ function App() {
   const todoList: any = todos.length ? (
     todos.map((todo: ITodo, index: number) => (
       <div key={index} className='d-flex align-items-center justify-content-around py-3 mx-auto'>
-        <div>{todo.text}</div>
-        <div>
-        <button type='button' onClick={() => completeTodo(index)} className="btn btn-secondary">
-          {todo.complete ? "Incomplete" : "Complete"}
-        </button>
-        {' '}
-        <button type='button' onClick={() => removeTodo(index)} className="btn btn-danger">
-          remove
-        </button>
+          <div>{todo.text}</div>
+          <div>
+          <button type='button' onClick={() => completeTodo(index)} className="btn btn-secondary">
+            {todo.complete ? "Incomplete" : "Complete"}
+          </button>
+          {' '}
+          <button type='button' onClick={() => removeTodo(index)} className="btn btn-danger">
+            remove
+          </button>
+          </div>
         </div>
-      </div>
     ))
   ) : (
-    <div className="text-center">Loading..</div>
+    <div className="text-center">Loading...</div>
   )
   
 
@@ -84,7 +84,7 @@ function App() {
   );
 }
 
-export default App;
+export default Todo;
 
 
 //  <div className="App">
