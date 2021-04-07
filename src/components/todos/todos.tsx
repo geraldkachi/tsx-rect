@@ -78,7 +78,7 @@ function Todo() {
         <button type='submit' className="btn btn-dark">Add Todo</button>
       </form>
       <section className='flex align-items-center justify-content-around'>
-        {todoList}
+        {todoList} 
       </section>
     </div>
   );
