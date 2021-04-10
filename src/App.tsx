@@ -1,91 +1,47 @@
-import React, {useState} from 'react';
+import React from "react";
 // import logo from './logo.svg';
-import './App.css';
-
-type FormElem = React.FormEvent<HTMLFormElement>
-
-interface ITodo {
-  text: string
-  complete: boolean
-}
-
-// simplar to the way we extends class
-
-// interface ITodo2 extends ITodo {  
-//   text: string
-//   complete: boolean
-// }
+import "./App.css";
+import RickMorty from "./components/rickmorty/RickMorty";
+import TodoApp from "./components/todos/todos";
 
 function App() {
-  // | stand for or in typescript
 
-  const [value, setvalue] = useState('')
-  const [todos, setTodos] = useState<ITodo[]>([])
+  //  const [count, dispatch] = React.useReducer(reducer, initialState, init)
+  //  const [value, setValue] = React.useReducer(reducer, 0)
 
-  // const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  const handleSubmit = (e: FormElem): void => {
-    e.preventDefault()
-    setvalue('')
-    addTodo(value)
-    console.log(value)
-  }
+  // const initialState = {
 
-  //  Add Todos
-  const addTodo: any = (text: string): void => {
-    const newTodos: ITodo[] = [...todos, {text, complete: false}]
-    setTodos(newTodos)
-  }
-
-  // Complete Todos
-  // const complete Todos
-  const completeTodo: any = (index: number):void => {
-    const newTodos: ITodo[] = [...todos]
-    newTodos[index].complete = !newTodos[index].complete
-  }
-  // remove Todo
-  const removeTodo = (index: number):void => {
-    const newTodos: ITodo[] = [...todos]
-    newTodos.splice(index, 1)
-    setTodos(newTodos)
-  }
+  // }
   
-
-  const todoList: any = todos.length ? (
-    todos.map((todo: ITodo, index: number) => (
-      <div key={index} className='d-flex align-items-center justify-content-around py-3 mx-auto'>
-        <div>{todo.text}</div>
-        <div>
-        <button type='button' onClick={() => completeTodo(index)} className="btn btn-secondary">
-          {todo.complete ? "Incomplete" : "Complete"}
-        </button>
-        {' '}
-        <button type='button' onClick={() => removeTodo(index)} className="btn btn-danger">
-          remove
-        </button>
-        </div>
-      </div>
-    ))
-  ) : (
-    <div className="text-center">Loading..</div>
-  )
+  //  const reducer = (state = initialState, action) => {
+  //   switch (action) {
+      // if (condition) {
+        
+      // }
+    // case (action:'ADD'):
+    //   return { .
+    //     ..count, 
+    //     ...payload
+    //    }
   
-
+    // default:
+    //   return state
+    // }
+  // }
+  
   return (
     <div className="App">
-      <h1>Todo List</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" value={value} onChange={e => {setvalue(e.target.value)}} required/>
-        <button type='submit' className="btn btn-dark">Add Todo</button>
-      </form>
-      <section className='flex align-items-center justify-content-around'>
-        {todoList}
-      </section>
+      <RickMorty />
+      <TodoApp />
     </div>
   );
 }
+// ajidagan olorunfumi street
+
+// for scss. suda npm i -g sass
+// sass --watch scss/style.scss css/style.css
 
 export default App;
-
 
 //  <div className="App">
 // <header className="App-header">
@@ -102,4 +58,9 @@ export default App;
 //     Learn React
 //   </a>
 // </header>
-// </div> 
+// </div>
+
+
+// GraphQl is a query language for Apis  and a runtime for fulfilling those queries with your existing data.
+// GraphQl provides a complete and understandable descriptuion of the  data in your Api. give clients the power tp ask exactly  what they  need and nothing more,
+//  makes it easier to evolve APIs over time, and enables powerful develop tool.

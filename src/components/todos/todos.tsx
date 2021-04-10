@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 // import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 
 type FormElem = React.FormEvent<HTMLFormElement>
 
@@ -16,7 +16,7 @@ interface ITodo {
 //   complete: boolean
 // }
 
-function Todo() {
+function TodoApp() {
   // | stand for or in typescript
 
   const [value, setvalue] = useState('')
@@ -74,8 +74,10 @@ function Todo() {
     <div className="App">
       <h1>Todo List</h1>
       <form onSubmit={handleSubmit}>
+       <div className="d-flex justify-content-center align-items-center">
         <input type="text" value={value} onChange={e => {setvalue(e.target.value)}} required/>
         <button type='submit' className="btn btn-dark">Add Todo</button>
+       </div>
       </form>
       <section className='flex align-items-center justify-content-around'>
         {todoList} 
@@ -84,22 +86,5 @@ function Todo() {
   );
 }
 
-export default Todo;
+export default TodoApp;
 
-
-//  <div className="App">
-// <header className="App-header">
-//   <img src={logo} className="App-logo" alt="logo" />
-//   <p>
-//     Edit <code>src/App.tsx</code> and save to reload.
-//   </p>
-//   <a
-//     className="App-link"
-//     href="https://reactjs.org"
-//     target="_blank"
-//     rel="noopener noreferrer"
-//   >
-//     Learn React
-//   </a>
-// </header>
-// </div> 
