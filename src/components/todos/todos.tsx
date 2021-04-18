@@ -48,6 +48,11 @@ function TodoApp() {
     newTodos.splice(index, 1)
     setTodos(newTodos)
   }
+  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const {value}: any = e.target
+    setvalue(value)
+    // setvalue(e.target.value)
+  }
   
 
   const todoList: any = todos.length ? (
@@ -75,7 +80,7 @@ function TodoApp() {
       <h1>Todo List</h1>
       <form onSubmit={handleSubmit}>
        <div className="d-flex justify-content-center align-items-center">
-        <input type="text" value={value} onChange={e => {setvalue(e.target.value)}} required/>
+        <input type="text" value={value} onChange={handleChange} required/>
         <button type='submit' className="btn btn-dark">Add Todo</button>
        </div>
       </form>
